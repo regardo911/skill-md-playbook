@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "project-db": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["<your-current-postgres-mcp-package>", "--connection-string", "$DATABASE_URL"]
+    }
+  }
+}

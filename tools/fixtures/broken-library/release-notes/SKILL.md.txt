@@ -1,0 +1,15 @@
+---
+name: release-notes
+description: Use this skill when drafting release notes from a set of merged pull requests. Groups changes by type, writes user-facing language, and drops internal refactors.
+---
+
+# Release Notes
+
+## Trigger
+When drafting release notes or a changelog entry.
+
+## Instructions
+- Group by Added, Changed, Fixed. Drop everything else
+- User-facing language. No file paths, no internal module names
+- One line per change, imperative mood
+- Link the PR number at the end of each line

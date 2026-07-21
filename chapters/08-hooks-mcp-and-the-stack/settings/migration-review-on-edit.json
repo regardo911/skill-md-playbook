@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "FilePath(migrations/**/*.sql)",
+            "command": "claude -p \"Review the migration at $CLAUDE_TOOL_FILE_PATH against the current schema. Use the migration-review skill. Fetch live schema via the project-db MCP server.\""
+          }
+        ]
+      }
+    ]
+  }
+}

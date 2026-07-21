@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(rm -rf *)",
+            "command": "echo 'Blocked: rm -rf is not allowed via Claude. Run it yourself if you really mean it.' >&2 && exit 1"
+          }
+        ]
+      }
+    ]
+  }
+}

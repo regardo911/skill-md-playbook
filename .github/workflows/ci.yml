@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: shellcheck
+        run: shellcheck tools/*.sh install.sh tests/run.sh chapters/05-architecture-that-scales/migrate.sh
+
+      - name: tests
+        run: bash tests/run.sh | tee /tmp/tests.out
+
+      - name: assertion count is not zero
+        run: |
+          n=$(sed -n 's/^\([0-9][0-9]*\) assertions:.*/\1/p' /tmp/tests.out)
+          test -n "$n" && test "$n" -gt 0
+          echo "$n assertions ran"

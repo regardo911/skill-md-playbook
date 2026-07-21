@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "FilePath(src/security/**)",
+            "command": "claude -p \"Review the staged changes to $CLAUDE_TOOL_FILE_PATH for security issues. Use the api-security skill. If no issues, output a single line: SECURITY-OK.\""
+          }
+        ]
+      }
+    ]
+  }
+}

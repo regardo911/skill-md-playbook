@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "FilePath(src/**/*.ts)",
+            "command": "claude -p \"Check if the changes to $CLAUDE_TOOL_FILE_PATH require README updates. Use the readme-sync skill. If no exported-function changes affect the README, output a single line: README-IN-SYNC.\""
+          }
+        ]
+      }
+    ]
+  }
+}

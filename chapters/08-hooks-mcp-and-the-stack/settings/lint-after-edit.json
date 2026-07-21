@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "FilePath(*.ts)",
+            "command": "npx eslint \"$CLAUDE_TOOL_FILE_PATH\""
+          }
+        ]
+      }
+    ]
+  }
+}
